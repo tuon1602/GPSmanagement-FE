@@ -1,10 +1,15 @@
-import Image from 'next/image'
-import CustomButton from './components/CustomButton'
+import Image from "next/image";
+import CustomButton from "./components/CustomButton";
+import { Accordion, AccordionItem } from "@nextui-org/accordion";
+import { Input } from "@nextui-org/input";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <CustomButton title="wtf"/>
+    <main className="">
+      <CustomButton title="wtf" />
+      <div>
+        <Input variant="underlined" type="text" placeholder="Enter email"/>
+      </div>
     </main>
-  )
+  );
 }
