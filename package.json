@@ -9,13 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@edgestore/react": "^0.1.4",
+    "@edgestore/server": "^0.1.4",
     "@nextui-org/react": "^2.2.8",
+    "chart.js": "^4.4.0",
     "framer-motion": "^10.16.4",
+    "lucide-react": "^0.292.0",
     "next": "14.0.1",
     "react": "^18",
-    "react-dom": "^18"
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^18",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.2.0",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.1",
