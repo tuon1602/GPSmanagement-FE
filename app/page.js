@@ -6,7 +6,7 @@ import { Input } from "@nextui-org/input";
 export default function Home() {
   return (
     <main className="">
-      <CustomButton title="wtf" />
+      <CustomButton title="admin123" />
       <div>
         <Input variant="underlined" type="text" placeholder="Enter email"/>
       </div>
