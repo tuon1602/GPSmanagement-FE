@@ -10,6 +10,7 @@ import {
 } from "@nextui-org/table";
 import { Radio, RadioGroup } from "@nextui-org/radio";
 import { PenLine, Trash2 } from "@/app/components/iconWrapper";
+import Link from "next/link";
 
 const colors = [
   "default",
@@ -93,7 +94,7 @@ const ProviderTable = (props) => {
                 <TableCell>{item.contactName}</TableCell>
                 <TableCell>{item.email}</TableCell>
                 <TableCell className="flex gap-5">
-                  <PenLine />
+                  <Link href={`/dashboard/providerdetail/${item.id}`}><PenLine /></Link>
                   <button onClick={() => handleDeleteProvider(item.id)}>
                     <Trash2 />
                   </button>
