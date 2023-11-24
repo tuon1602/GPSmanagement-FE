@@ -5,7 +5,7 @@ const AdminDashboardCard = (props) => {
   console.log(backGroundColor)
   return (
     <div>
-      <div className="w-[268px] border-1 rounded-small h-[120px] flex justify-center items-center">
+      <div className="w-[300px] border-1 rounded-small h-[120px] flex justify-center items-center">
         <div className="p-5 flex gap-5 content-center items-center">
           <div className="">
             <p className={`rounded-full p-4 bg-[#4424]`}>

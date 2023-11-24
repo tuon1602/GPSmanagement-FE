@@ -1,7 +1,9 @@
+"use client"
+
 import React from "react";
 import Image from "next/image";
-import AdminNavigation from "../components/admin/AdminNavigation";
-import AdminDashboard from "../components/admin/AdminDashboard";
+// import AdminNavigation from "@/components/admin/AdminNavigation
+import AdminDashboard from "@/app/components/admin/AdminDashboard";
 
 const DashBoardPage = () => {
   return (

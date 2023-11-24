@@ -19,10 +19,10 @@ import Link from "next/link";
 import DropdownCustom from "../DropdownCustom";
 const AdminNavigation = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col gap-10">
       <div className="flex flex-col gap-6">
         <Image src={Logo} alt="logo" width="125" height="125" />
-        <Button startContent={<Plus />} size="md">
+        <Button startContent={<Plus />} size="md" className="text-white bg-black">
           Add Clients
         </Button>
         <Link href="/dashboard" className="flex gap-2">
@@ -35,33 +35,26 @@ const AdminNavigation = () => {
         </Link>
         <DropdownCustom
           text="products"
-          dropDownItem={["device", "provider","import","service"]}
+          dropDownItem={["device", "provider", "import", "service"]}
           icon={<Package />}
         />
         <DropdownCustom
-          text="Products"
-          dropDownItem={["Product", "Provider"]}
-          icon={<UploadCloud />}
-        />
-        <DropdownCustom
-          text="Products"
-          dropDownItem={["Product", "Provider"]}
-          icon={<Database />}
-        />
-        <DropdownCustom
-          text="Products"
-          dropDownItem={["Product", "Provider"]}
+          text="clients"
+          dropDownItem={["subscribers"]}
           icon={<Users />}
         />
         <DropdownCustom
-          text="Products"
-          dropDownItem={["Product", "Provider"]}
+          text="reports"
+          dropDownItem={["FAQ", "reports"]}
           icon={<MessageSquare />}
         />
         <Link href="/settings" className="flex gap-2">
           <Settings width={24} height={24} />
           Settings
         </Link>
+      </div>
+      <div>
+        <CustomButton title="Logout"/>
       </div>
     </div>
   );

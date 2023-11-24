@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { UiProvider } from "./Providers/UiProvider";
-import AdminNavigation from "./components/admin/AdminNavigation";
+import { UiProvider } from "../Providers/UiProvider";
+import AdminNavigation from "../components/admin/AdminNavigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <UiProvider>
-          <div className="flex gap-5 w-screen">
+          <div className="flex gap-5 w-screen px-10">
             <div className="p-5">
               <div className="h-full fixed">
                 <AdminNavigation />

@@ -1,13 +1,46 @@
 "use client";
 import { Chart } from "chart.js/auto";
-import { useEffect, useRef } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import DropdownCustom from "../DropdownCustom";
 import AdminDashboardCard from "./AdminDashboardCard";
 import { Heart, ShoppingBag, Bot } from "@/app/components/iconWrapper";
 import RecentSubsribeTable from "./RecentSubsribeTable";
+import useSWR from "swr";
 
 const AdminDashboard = () => {
+  const [staticsData, setStaticsData] = useState("");
+
   const chartRef = useRef(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (typeof window !== "undefined") {
+          // Perform localStorage action
+          const token = localStorage.getItem("token");
+          const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/statis`, {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+          if (res.ok) {
+            const data = await res.json();
+            setStaticsData(data);
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        // Handle errors, e.g., set an error state
+      }
+    };
+
+    fetchData(); // Call the async function immediately
+
+    // Note: If you ever need to clean up (e.g., cancel a request),
+    // you can return a cleanup function here
+  }, []);
   useEffect(() => {
     if (chartRef.current) {
       if (chartRef.current.chart) {
@@ -60,15 +93,15 @@ const AdminDashboard = () => {
         <AdminDashboardCard
           iconColor="#EC2222"
           icon={<Heart />}
-          number="2.761"
-          title="Total Revenue"
+          number={staticsData.numberOfCustomers}
+          title="Number of Customers"
           color="#F21111"
         />
         <AdminDashboardCard
           iconColor="#03A89E"
           icon={<ShoppingBag />}
-          number="580"
-          title="Total Customer"
+          number={staticsData.numberOfSims}
+          title="Total Sims"
           color="#03A89E"
         />
         <AdminDashboardCard
@@ -87,11 +120,11 @@ const AdminDashboard = () => {
         />
       </div>
       <div className="w-1/2 mt-5">
-        <canvas ref={chartRef}/>
+        <canvas ref={chartRef} />
       </div>
       <div className="mt-5">
         <h2 className="font-bold mb-2 text-xl">Recent Subscriber</h2>
-        <RecentSubsribeTable/>
+        <RecentSubsribeTable />
       </div>
     </div>
   );
